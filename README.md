@@ -1,6 +1,6 @@
-Simple App
+Application manager
 ------------
-A simple app to manage a list of applications.
+A django app to manage a list of applications.
 
 An application has a description, a zip file which can be accessed by an url, and can be public or private.
 
@@ -11,6 +11,7 @@ Three pages are available :
 
 Project made using `Python 3.5`, `django 1.8` and `bootstrap3`.
 
+Inside your virtual environment, clone the repo, then:
 ```
 pip install -r requirements.txt
 python manage.py migrate
