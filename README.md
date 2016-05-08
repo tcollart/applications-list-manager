@@ -1,4 +1,4 @@
-# Simple App
+Simple App
 ------------
 A simple app to manage a list of applications.
 
@@ -12,7 +12,7 @@ Three pages are available :
 Project made using `Python 3.5`, `django 1.8` and `bootstrap3`.
 
 ```
-$ pip install -r requirements.txt
-$ python manage.py migrate
-$ python manage.py runserver
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
 ```
