@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+  {% load bootstrap3 %}
+  {% bootstrap_css %}
+  <title>{% block title %}SimpleApp{% endblock %}</title>
+</head>
+
+<body>
+  <div class="col-lg-6 col-md-offset-3">
+    <div class="page-header">
+      <h1><a href="/">Applications manager</a>
+        <small class="pull-right">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'signout' %}">
+            <button type="button" class="btn btn-danger navbar-btn">Sign out</button>
+          </a>
+        {% else %}
+          <a href="{% url 'signup' %}">
+	        <button type="button" class="btn btn-success navbar-btn">Sign up</button>
+          </a>
+          <a href="{% url 'signin' %}">
+	        <button type="button" class="btn btn-primary navbar-btn">Sign in</button>
+          </a>
+          {% endif %}
+	    </small>
+      </h1>
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>

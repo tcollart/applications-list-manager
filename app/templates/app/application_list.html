@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if request.user.is_authenticated %}
+  <a href="{% url 'upload_app' %}">
+    <button type="button" class="btn btn-success navbar-btn">Upload a new Application</button>
+  </a>
+  {% else %}
+    <a href="{% url 'signup' %}">Sign up</a> then <a href="{% url 'signin' %}">sign in</a> to upload applications.
+  {% endif %}
+  {% for app in object_list %}
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <a href="{% url 'edit_app' app.pk %}">Application #{{ app.pk }}</a>
+          {% if app.is_private %}
+            <i class="glyphicon glyphicon-lock"></i>
+          {% endif %}
+          - <a href="/media/{{ app.zip_file }}">Archive's URL</a>
+        </div>
+        <div class="panel-body">
+          <p>{{ app.description }}</p>
+        </div>
+      </div>
+  {% endfor %}
+{% endblock %}
